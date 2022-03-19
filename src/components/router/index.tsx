@@ -1,19 +1,19 @@
 import { FunctionComponent } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import Home from "../components/home";
-import Variables from "../components/variables";
-import Template from "../components/template";
-import Output from "../components/output";
+import Home from "../home";
+import Variables from "../variables";
+import Template from "../template";
+import Output from "../output";
 
-import { withMain } from "../utils/hof";
+import { withMain } from "../../utils/hof";
 
 const MainHome = withMain(Home);
 const MainVariables = withMain(Variables);
 const MainTemplate = withMain(Template);
 const MainOutput = withMain(Output);
 
-const RootRoutes: FunctionComponent = () => {
+const MainRouter: FunctionComponent = () => {
   return (
     <Routes>
       <Route path={ROUTES_MAP.HOME} element={MainHome} />
@@ -28,9 +28,9 @@ type IRouteMap = "HOME" | "VARS" | "TEMPLATE" | "OUTPUT";
 
 export const ROUTES_MAP: { [route in IRouteMap]: string } = {
   "HOME": "/",
-  "VARS": "vars",
+  "VARS": "variables",
   "TEMPLATE": "template",
   "OUTPUT": "output"
 };
 
-export default RootRoutes;
+export default MainRouter;

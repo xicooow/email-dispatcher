@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import { useNavigate } from "react-router-dom";
 import { Alignment, Button, IconName, Navbar } from "@blueprintjs/core";
 
-import { ROUTES_MAP } from "../../routes";
+import { ROUTES_MAP } from "../router";
 
 interface INavigatorItems {
   icon: IconName,

@@ -1,14 +1,16 @@
 import { FunctionComponent } from "react";
 
-import RootRoutes from "../../routes";
 import Navigator from "../navigator";
+import MainRouter from "../router";
+
+import { DARK_THEME_CLASS_NAME } from "../../utils/constants";
 
 const App: FunctionComponent = () => {
   return (
-    <section className="bp3-dark">
+    <div className={DARK_THEME_CLASS_NAME}>
       <Navigator />
-      <RootRoutes />
-    </section>
+      <MainRouter />
+    </div>
   );
 };
 

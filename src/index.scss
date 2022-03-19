@@ -3,11 +3,55 @@
 @import "~@blueprintjs/core/lib/scss/variables.scss";
 @import "~@blueprintjs/core/lib/css/blueprint.css";
 
+/* common */
 html,
 body {
   background-color: $dark-gray5;
 }
 
+footer {
+  position: fixed;
+  font-size: large;
+  height: 54px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+strong {
+  &.highlight {
+    color: $gold5;
+  }
+}
+
 .main-content {
+  position: relative;
   padding: 15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.disclaimer {
+  font-size: large;
+}
+
+/* home */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.features-list {
+  max-width: 760px;
+
+  & span {
+    &.feature {
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+  }
 }
