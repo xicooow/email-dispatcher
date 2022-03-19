@@ -3,37 +3,58 @@
 @import "~@blueprintjs/core/lib/scss/variables.scss";
 @import "~@blueprintjs/core/lib/css/blueprint.css";
 
+/* variables */
+$footer-height: 50px !default;
+
 /* common */
 html,
 body {
   background-color: $dark-gray5;
 }
 
-footer {
-  position: fixed;
-  font-size: large;
-  height: 54px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
+html {
+  position: relative;
+  min-height: 100%;
 }
 
-strong {
-  &.highlight {
-    color: $gold5;
-  }
+body {
+  margin-bottom: $footer-height;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  overflow: hidden;
+  height: $footer-height;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+a {
+  font-weight: bold;
+}
+
+li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.highlight {
+  color: $gold5;
 }
 
 .main-content {
   position: relative;
-  padding: 15px;
+  padding: 20px;
 }
 
 .text-center {
   text-align: center;
 }
 
-.disclaimer {
+.font-large {
   font-size: large;
 }
 
@@ -45,13 +66,13 @@ strong {
   align-items: center;
 }
 
-.features-list {
-  max-width: 760px;
+.home-wrapper {
+  max-width: 900px;
+}
 
-  & span {
-    &.feature {
-      margin-right: 6px;
-      margin-bottom: 6px;
-    }
+.features {
+  &>.feature {
+    margin-right: 6px;
+    margin-bottom: 6px;
   }
 }
