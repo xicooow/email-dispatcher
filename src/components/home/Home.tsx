@@ -16,7 +16,7 @@ const Home: FunctionComponent = () => {
   return (
     <section className="home-container">
       <section className="home-wrapper">
-        <section>
+        <section className="margin-bottom-18">
           <h1>Welcome 🤗</h1>
           <div className="font-large">
             <p>
@@ -27,8 +27,7 @@ const Home: FunctionComponent = () => {
             </p>
           </div>
         </section>
-        <br />
-        <section>
+        <section className="margin-bottom-18">
           <h2>Check out our features 💪</h2>
           <div className="features">
             {
@@ -49,14 +48,12 @@ const Home: FunctionComponent = () => {
             }
           </div>
         </section>
-        <br />
-        <section>
+        <section className="margin-bottom-18">
           <h2>How to use it? 🤔</h2>
           <Callout icon="info-sign" className="font-large">
             First, you need to define variables, in the <Link to={ROUTES_MAP.VARS}>Variables</Link> page. Each list of variables will correspond to a email. Then, you need to write the template, in the <Link to={ROUTES_MAP.TEMPLATE}>Template</Link> page. Template is the actual message that will be sent in the emails. Finally, after setting both variables and template, you can see the result in the <Link to={ROUTES_MAP.OUTPUT}>Output</Link> page. There, you will also find instructions to send the emails.
           </Callout>
         </section>
-        <br />
         <section>
           <h2>Motivation 💡</h2>
           <div className="font-large">
