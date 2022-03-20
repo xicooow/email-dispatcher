@@ -21,24 +21,41 @@ body {
   margin-bottom: $footer-height;
 }
 
-footer {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  overflow: hidden;
-  height: $footer-height;
-  width: 100%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
 a {
   font-weight: bold;
 }
 
 li:not(:last-child) {
   margin-bottom: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: $light-gray5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $gray4;
+}
+
+#footer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  overflow: hidden;
+  height: $footer-height;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .highlight {
