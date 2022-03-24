@@ -7,6 +7,7 @@ import Template from "../template";
 import Output from "../output";
 
 import { withMain } from "../../utils/hof";
+import { ROUTES_MAP } from "../../utils/constants";
 
 const MainHome = withMain(Home);
 const MainVariables = withMain(Variables);
@@ -22,15 +23,6 @@ const MainRouter: FunctionComponent = () => {
       <Route path={ROUTES_MAP.OUTPUT} element={MainOutput} />
     </Routes>
   );
-};
-
-type IRouteMap = "HOME" | "VARS" | "TEMPLATE" | "OUTPUT";
-
-export const ROUTES_MAP: { [route in IRouteMap]: string } = {
-  "HOME": "/",
-  "VARS": "variables",
-  "TEMPLATE": "template",
-  "OUTPUT": "output"
 };
 
 export default MainRouter;

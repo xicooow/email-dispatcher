@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import { Callout, Tag } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
-import { ROUTES_MAP } from "../router";
+import { ROUTES_MAP } from "../../utils/constants";
 
 const features = [
   "Set/use variables within emails' content",

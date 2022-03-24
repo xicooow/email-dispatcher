@@ -1,16 +1,11 @@
 import { FunctionComponent } from "react";
 import { useNavigate } from "react-router-dom";
-import { Alignment, Button, IconName, Navbar } from "@blueprintjs/core";
+import { Alignment, Button, Navbar } from "@blueprintjs/core";
 
-import { ROUTES_MAP } from "../router";
+import { TNavigatorItem } from "../../types";
+import { ROUTES_MAP } from "../../utils/constants";
 
-interface INavigatorItems {
-  icon: IconName,
-  text: string,
-  dest: string
-}
-
-const navigatorItems: INavigatorItems[] = [
+const navigatorItems: TNavigatorItem[] = [
   {
     icon: "home",
     text: "Home",

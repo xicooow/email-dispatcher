@@ -1,2 +1,2 @@
-import Variables from "./Variables";
-export default Variables;
+import VariablesList from "./VariablesList";
+export default VariablesList;
