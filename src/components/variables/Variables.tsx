@@ -1,27 +1,26 @@
 import { FunctionComponent } from "react";
 
+import Variable from "./Variable";
 import { TVariable } from "../../types";
 
 const Variables: FunctionComponent<VariablesProps> = ({
   listIndex,
   variables
 }) => {
-  const renderVariable = (variable: TVariable, index: number): JSX.Element => {
-    return (
-      <ul key={index}>
-        <li>Index: {index}</li>
-        <li>Name: {variable.name}</li>
-        <li>Value: {variable.value}</li>
-      </ul>
-    );
-  };
-
   return (
     <>
-      <div>Variables index: {listIndex}</div>
-      {variables.map((variable: TVariable, index: number) => {
-        return renderVariable(variable, index);
-      })}
+      {
+        variables.map((variable: TVariable, index: number) => {
+          return (
+            <Variable
+              key={`var-${index}`}
+              variable={variable}
+              listIndex={listIndex}
+              varIndex={index}
+            />
+          );
+        })
+      }
     </>
   );
 };

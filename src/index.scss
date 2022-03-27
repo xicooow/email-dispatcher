@@ -97,3 +97,39 @@ li:not(:last-child) {
     margin-bottom: 6px;
   }
 }
+
+/* variables */
+.variables-list-tab-title {
+  color: $light-gray5;
+}
+
+.add-variables {
+  align-self: center;
+}
+
+.variable-container {
+  display: flex;
+  padding: 12px;
+  align-items: center;
+  line-height: 1.5;
+}
+
+.variable-item {
+  display: flex;
+  align-self: center;
+  align-items: center;
+}
+
+.variable-actions {
+  margin: 0 12px;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.variable-spacer {
+  display: inline-block;
+  height: 16px;
+  width: 8px;
+}

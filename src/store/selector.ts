@@ -1,6 +1,7 @@
-import { getState } from '.';
-import { TVariable } from '../types';
+import { useStore } from '.';
+import { TState, TVariable } from '../types';
 
-export const getVariables = (): TVariable[][] => {
-  return getState().variables;
-};
+const getState = (): TState => useStore().state;
+
+export const getVariables = (): TVariable[][] => getState().variables;
+export const getVariablesNames = (): string[] => getState().variablesNames;

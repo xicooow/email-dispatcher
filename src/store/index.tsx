@@ -2,7 +2,7 @@ import { createContext, FunctionComponent, useContext, useReducer } from "react"
 
 import reducer from "./reducer";
 import initialState from "./state";
-import { TStoreContext } from "../types";
+import { TAction, TState, TStoreContext } from "../types";
 
 const StoreContext = createContext<TStoreContext>({
   state: initialState,
@@ -10,7 +10,7 @@ const StoreContext = createContext<TStoreContext>({
 });
 
 const Store: FunctionComponent = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer<(state: TState, action: TAction) => TState>(reducer, initialState);
 
   return (
     <StoreContext.Provider value={{ state, dispatch }}>
@@ -19,6 +19,5 @@ const Store: FunctionComponent = ({ children }) => {
   );
 };
 
-export const getState = () => useContext(StoreContext).state;
-export const getDispatch = () => useContext(StoreContext).dispatch;
+export const useStore = () => useContext<TStoreContext>(StoreContext);
 export default Store;

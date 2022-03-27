@@ -6,6 +6,9 @@ const initialState: TState = {
       { id: "1-name", name: "name", value: "World" }
     ]
   ],
+  variablesNames: [
+    "Placeholder"
+  ],
   template: "Hello ${name}!",
   output: [
     "Hello World!"

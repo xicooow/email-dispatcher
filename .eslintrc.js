@@ -23,6 +23,7 @@ module.exports = {
   ],
   "rules": {
     "react/react-in-jsx-scope": 0,
+    "no-debugger": 0,
     "semi": 1,
     "no-else-return": 1,
     "space-unary-ops": 1,
