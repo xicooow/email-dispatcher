@@ -7,7 +7,8 @@ import {
   TEditVarPayload,
   TRemoveVarPayload,
   TUpdateTemplatePayload,
-  TRemoveVarListPayload
+  TRemoveVarListPayload,
+  TUpdateVarListName
 } from "../types";
 import {
   ADD_VARIABLE,
@@ -15,6 +16,7 @@ import {
   REMOVE_VARIABLE,
   ADD_VARIABLE_LIST,
   REMOVE_VARIABLE_LIST,
+  UPDATE_VARIABLE_LIST_NAME,
   UPDATE_TEMPLATE
 } from "../store/actions";
 
@@ -43,17 +45,17 @@ const removeVariable = (newState: TState, { id, index }: TRemoveVarPayload) => {
 const addVariableList = (newState: TState) => {
   newState.variables.push([]);
   newState.variablesNames.push("New...");
-  const newVar: TAddVarPayload = {
-    index: (newState.variables.length - 1),
-    name: "new-name",
-    value: "New value"
-  };
-  return addVariable(newState, newVar);
+  return { ...newState };
 };
 
 const removeVariableList = (newState: TState, { index }: TRemoveVarListPayload) => {
   newState.variables.splice(index, 1);
   newState.variablesNames.splice(index, 1);
+  return { ...newState };
+};
+
+const updateVariableListName = (newState: TState, { index, value }: TUpdateVarListName) => {
+  newState.variablesNames[index] = value;
   return { ...newState };
 };
 
@@ -85,6 +87,11 @@ const reducer = (state: TState = initialState, action: TAction): TState => {
       return addVariableList({ ...state });
     case REMOVE_VARIABLE_LIST:
       return removeVariableList(
+        { ...state },
+        action.payload
+      );
+    case UPDATE_VARIABLE_LIST_NAME:
+      return updateVariableListName(
         { ...state },
         action.payload
       );

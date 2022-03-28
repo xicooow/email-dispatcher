@@ -89,7 +89,7 @@ li:not(:last-child) {
 }
 
 .home-wrapper {
-  max-width: 900px;
+  max-width: 936px;
 }
 
 .features {
@@ -110,27 +110,36 @@ li:not(:last-child) {
 
 .variable-container {
   display: flex;
-  padding: 12px;
   align-items: center;
-  line-height: 1.5;
+  padding: 0 12px 12px;
+}
+
+.variables-container {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+
+  & .variables-inputs {
+    flex-wrap: wrap;
+
+    & .variables-value-input {
+      margin-top: 8px;
+    }
+  }
 }
 
 .variable-item {
   display: flex;
-  align-self: center;
-  align-items: center;
 }
 
 .variable-actions {
-  margin: 0 12px;
+  margin: 0 14px;
   display: flex;
-  align-self: center;
-  align-items: center;
   cursor: pointer;
 }
 
 .variable-spacer {
   display: inline-block;
-  height: 16px;
-  width: 8px;
+  height: 27px;
+  width: 10px;
 }

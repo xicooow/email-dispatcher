@@ -3,15 +3,15 @@ import { TState } from "../types";
 const initialState: TState = {
   variables: [
     [
-      { id: "1-name", name: "name", value: "World" }
+      { id: "1-variable-name", name: "variable-name", value: "Dummy Variable" }
     ]
   ],
   variablesNames: [
-    "Placeholder"
+    "Change me"
   ],
-  template: "Hello ${name}!",
+  template: "This is the template for the ${variable-name}!",
   output: [
-    "Hello World!"
+    "This is the template for the Dummy Variable!"
   ]
 };
 

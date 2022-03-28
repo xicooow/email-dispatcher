@@ -1,4 +1,4 @@
-import React from "react";
+import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { FocusStyleManager } from "@blueprintjs/core";
@@ -10,12 +10,12 @@ import App from "./components/app/App";
 import "./index.scss";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <BrowserRouter>
       <Store>
         <App />
       </Store>
     </BrowserRouter>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById("root")
 );

@@ -1,3 +1,4 @@
+import { Dispatch } from "react";
 import { IconName } from "@blueprintjs/core";
 
 import {
@@ -6,6 +7,7 @@ import {
   REMOVE_VARIABLE,
   ADD_VARIABLE_LIST,
   REMOVE_VARIABLE_LIST,
+  UPDATE_VARIABLE_LIST_NAME,
   UPDATE_OUTPUT,
   UPDATE_TEMPLATE
 } from "../store/actions";
@@ -36,12 +38,13 @@ export type TAction =
   | { type: typeof EDIT_VARIABLE, payload: TEditVarPayload }
   | { type: typeof ADD_VARIABLE_LIST }
   | { type: typeof REMOVE_VARIABLE_LIST, payload: TRemoveVarListPayload }
+  | { type: typeof UPDATE_VARIABLE_LIST_NAME, payload: TUpdateVarListName }
   | { type: typeof UPDATE_TEMPLATE, payload: TUpdateTemplatePayload }
   | { type: typeof UPDATE_OUTPUT };
 
 export type TStoreContext = {
   state: TState,
-  dispatch: React.Dispatch<TAction>
+  dispatch: Dispatch<TAction>
 };
 
 export type TNavigatorItem = {
@@ -54,4 +57,5 @@ export type TRoutes = "HOME" | "VARS" | "TEMPLATE" | "OUTPUT";
 export type TAddVarPayload = Omit<TVariablesIndex, "varIndex"> & Omit<TVariable, "id">;
 export type TRemoveVarPayload = Omit<TVariablesIndex, "varIndex"> & Omit<TVariable, "name" | "value">;
 export type TRemoveVarListPayload = Omit<TVariablesIndex, "varIndex">;
+export type TUpdateVarListName = Omit<TVariablesIndex, "varIndex"> & Omit<TVariable, "id" | "name">;
 export type TEditVarPayload = TVariablesIndex & Omit<TVariable, "id">;
