@@ -1,18 +1,22 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect } from "react";
 
-import Navigator from "../navigator";
+import Header from "../header";
 import MainRouter from "../router";
 import Footer from "../footer";
 
 import { DARK_THEME_CLASS_NAME } from "../../utils/constants";
 
 const App: FunctionComponent = () => {
+  const onMountApp = () => {
+    document.body.classList.add(DARK_THEME_CLASS_NAME);
+  };
+
+  useEffect(onMountApp, []);
+
   return (
     <>
-      <div className={DARK_THEME_CLASS_NAME}>
-        <Navigator />
-        <MainRouter />
-      </div>
+      <Header />
+      <MainRouter />
       <Footer />
     </>
   );

@@ -44,7 +44,7 @@ const VariablesList: FunctionComponent = () => {
   const renderTabTitle = (name: string, index: number) => {
     return (
       <div className="variables-list-tab-title">
-        <span>{name}</span>
+        <span>{name || "<empty>"}</span>
         {" "}
         {
           variablesList.length > 1 && (

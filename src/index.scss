@@ -143,3 +143,7 @@ li:not(:last-child) {
   height: 27px;
   width: 10px;
 }
+
+.delete-dialog-buttons {
+  justify-content: flex-end;
+}

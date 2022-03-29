@@ -38,7 +38,7 @@ const Variables: FunctionComponent<VariablesProps> = ({
 
     if (INVALID_VAR_NAME_PATTERN.test(newVarName)) {
       AppToaster.show({
-        message: "Variables' \"Name\" should not have spaces or special characters!",
+        message: "Variables \"Name\" should not have spaces or special characters!",
         icon: "warning-sign",
         intent: "warning"
       });

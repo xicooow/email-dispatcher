@@ -28,7 +28,7 @@ const navigatorItems: TNavigatorItem[] = [
   }
 ];
 
-const Navigator: FunctionComponent = () => {
+const Header: FunctionComponent = () => {
   const navigate = useNavigate();
 
   return (
@@ -58,4 +58,4 @@ const Navigator: FunctionComponent = () => {
   );
 };
 
-export default Navigator;
+export default Header;
