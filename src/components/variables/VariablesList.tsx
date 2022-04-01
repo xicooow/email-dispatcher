@@ -1,9 +1,10 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { Tabs, Tab, Button, Icon, TabId } from "@blueprintjs/core";
 
 import Variables from "./Variables";
 import { useStore } from "../../store";
 import { TVariable } from "../../types";
+import { AppToaster } from "../toaster";
 import { getVariables, getVariablesNames } from "../../store/selector";
 import { ADD_VARIABLE_LIST, REMOVE_VARIABLE_LIST } from "../../store/actions";
 
@@ -14,6 +15,16 @@ const VariablesList: FunctionComponent = () => {
   const variablesList = getVariables();
   const variablesNames = getVariablesNames();
   const [selectedTabId, setSelectedTabId] = useState<TabId>("0");
+
+  useEffect(() => {
+    if (variablesList.length >= 10) {
+      AppToaster.show({
+        message: "You've reached the max number of tabs",
+        icon: "info-sign",
+        intent: "primary"
+      });
+    }
+  });
 
   const handleTabDelete = (index: number) => {
     deletedTabId = `${index}`;
@@ -38,7 +49,7 @@ const VariablesList: FunctionComponent = () => {
       setSelectedTabId(newTabId);
     };
 
-    setTimeout(changeTab, 10);
+    setTimeout(changeTab, 100);
   };
 
   const renderTabTitle = (name: string, index: number) => {
@@ -60,6 +71,7 @@ const VariablesList: FunctionComponent = () => {
 
   return (
     <Tabs
+      className="variables-list-tabs"
       id="variables-list-container"
       selectedTabId={selectedTabId}
       onChange={handleTabChange}
@@ -82,13 +94,17 @@ const VariablesList: FunctionComponent = () => {
           );
         })
       }
-      <Button
-        onClick={() => dispatch({ type: ADD_VARIABLE_LIST })}
-        className="add-variables"
-        icon="plus"
-        minimal
-        small
-      />
+      {
+        variablesList.length < 10 && (
+          <Button
+            onClick={() => dispatch({ type: ADD_VARIABLE_LIST })}
+            className="add-variables"
+            icon="plus"
+            minimal
+            small
+          />
+        )
+      }
     </Tabs>
   );
 };

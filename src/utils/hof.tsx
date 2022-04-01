@@ -5,9 +5,13 @@ export const withMain = (Element: FunctionComponent) => {
   const MainComponent: FunctionComponent = ({ children }) => {
     return (
       <div className="main-content">
-        <Element>
-          {children}
-        </Element>
+        <section className="container">
+          <section className="wrapper">
+            <Element>
+              {children}
+            </Element>
+          </section>
+        </section>
       </div>
     );
   };

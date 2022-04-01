@@ -1,5 +1,5 @@
 import { ChangeEvent, FunctionComponent, useState } from "react";
-import { ControlGroup, FormGroup, InputGroup } from "@blueprintjs/core";
+import { ControlGroup, FormGroup, InputGroup, NonIdealState } from "@blueprintjs/core";
 
 import Variable from "./Variable";
 import { AppToaster } from "../toaster";
@@ -108,16 +108,26 @@ const Variables: FunctionComponent<VariablesProps> = ({
       </div>
       <h2>Variables</h2>
       {
-        variables.map((variable: TVariable, index: number) => {
-          return (
-            <Variable
-              key={`var-${index}`}
-              variable={variable}
-              listIndex={listIndex}
-              varIndex={index}
+        variables.length === 0
+          ? (
+            <NonIdealState
+              icon="moon"
+              className="font-large"
+              description="There are no variables to list, add some in the form above"
             />
-          );
-        })
+          )
+          : (
+            variables.map((variable: TVariable, index: number) => {
+              return (
+                <Variable
+                  key={`var-${index}`}
+                  variable={variable}
+                  listIndex={listIndex}
+                  varIndex={index}
+                />
+              );
+            })
+          )
       }
     </>
   );
